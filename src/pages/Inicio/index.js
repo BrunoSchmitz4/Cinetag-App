@@ -1,11 +1,21 @@
 import Banner from 'components/Banner';
 import Titulo from '../../components/Titulo';
 import Card from 'components/Card';
-import videos from 'json/db.json'
-import style from './Inicio.module.css'
+import style from './Inicio.module.css';
+import { useEffect, useState } from 'react';
 
 
 function Inicio() {
+    const [videos, setVideos] = useState([]);
+
+    useEffect(() => {
+        fetch('https://my-json-server.typicode.com/BrunoSchmitz4/cinetag-api/videos')
+        .then(res => res.json())
+        .then(data => {
+            setVideos(data)
+        })
+    }, [])
+
     return (
         <>
         {/* Fragment é orfetado pelo react para considerar como um elemento pai */}
