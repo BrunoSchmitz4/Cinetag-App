@@ -17,7 +17,6 @@ export default function FavoritosProvider({ children }) {
 
 
 // Isso aqui é um hook personalizado. Hooks devem ser chamados como "use" no começo
-// Esse hook c
 export function useFavoritoContext() {
     const { favorito, setFavorito } = useContext(FavoritosContext);
 
@@ -31,12 +30,7 @@ export function useFavoritoContext() {
             return setFavorito(novaLista);
         }
 
-        novaLista.splice(
-        novaLista.findIndex(
-            item => item.id === novaLista.find(item => item.id === novoFavorito.id).id
-        ),
-        1
-        )
+        novaLista.splice(novaLista.indexOf(novoFavorito), 1);
         return setFavorito(novaLista);
     }
 

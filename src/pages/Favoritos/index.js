@@ -22,4 +22,4 @@ function Favoritos() {
     )
 }
 
-export default Favoritos
+export default Favoritos;

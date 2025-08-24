@@ -11,17 +11,13 @@ function Player() {
 
     useEffect(() => {
         fetch(`https://my-json-server.typicode.com/BrunoSchmitz4/cinetag-api/videos?id=${parametros.id}`)
-        .then(res => res.json())
-        .then(data => {
-            setVideo(...data)
-        })
+            .then(res => res.json())
+            .then(data => {
+                setVideo(...data)
+            })
     }, [])
 
-    if (!video) {
-        return <NaoEncontrada />
-    }
-
-    console.log(video);
+    if (!video) return <NaoEncontrada />
 
     return (
         <>
